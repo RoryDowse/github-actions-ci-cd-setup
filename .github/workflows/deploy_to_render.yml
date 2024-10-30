@@ -23,6 +23,12 @@ jobs:
           --health-retries=5
     steps:
       - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
       - name: Test
         run: |
           npm install
@@ -31,6 +37,7 @@ jobs:
           npm run seed 
           npm run start &
           npx wait-on http://localhost:3001
+          npx wait-on tcp:27017
           npm run test-component
 
       - name: Deploy
