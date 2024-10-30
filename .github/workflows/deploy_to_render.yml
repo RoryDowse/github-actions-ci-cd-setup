@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Build App
-        run: npm run build
+        run: npm run build --prefix server && npm run build --prefix client
 
       - name: Seed database
         run: npm run seed
