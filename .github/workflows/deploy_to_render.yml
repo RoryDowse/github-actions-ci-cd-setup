@@ -16,6 +16,8 @@ jobs:
       - name: Test
         run: |
           npm install
+          npm run build
+          npm run seed
           npm run start &
           npx wait-on http://localhost:3001
           npm run test-component
