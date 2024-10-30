@@ -46,5 +46,5 @@ jobs:
       - name: Wait for server to start
         run: npx wait-on http://localhost:3001
 
-      - name: Run vitest tests
-        run: npm run test:component
+      - name: Run cypress component tests
+        run: npm run test-component
