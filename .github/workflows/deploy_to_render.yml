@@ -53,6 +53,9 @@ jobs:
       - name: Set execute permissions for Cypress
         run: npm install --unsafe-perm=true --allow-root cypress
 
+      - name: Reclaim cache directory
+        run: chown -R 1001:1001 /github/home/.cache && echo "pwn dat cache"
+
       - name: Run Cypress component tests
         run: npm run test-component
 
