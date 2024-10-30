@@ -25,30 +25,30 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 21.x
+      # - name: Set up Node.js
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: 21.x
 
-      - name: Install dependencies
-        run: npm install
+      # - name: Install dependencies
+      #   run: npm install
 
-      - name: Build App
-        run: npm run build --prefix server && npm run build --prefix client
+      # - name: Build App
+      #   run: npm run build --prefix server && npm run build --prefix client
 
-      - name: Seed database
-        run: npm run seed
+      # - name: Seed database
+      #   run: npm run seed
 
-      - name: Start server
-        run: npm run start &
+      # - name: Start server
+      #   run: npm run start &
 
-      - name: Wait for MongoDB to be ready
-        run: |
-          echo "Waiting for MongoDB to be ready..."
-          npx wait-on tcp:27017
+      # - name: Wait for MongoDB to be ready
+      #   run: |
+      #     echo "Waiting for MongoDB to be ready..."
+      #     npx wait-on tcp:27017
 
-      - name: Wait for server to start
-        run: npx wait-on http://localhost:3001
+      # - name: Wait for server to start
+      #   run: npx wait-on http://localhost:3001
 
       - name: Deploy
         # Only run this step if the branch is main
